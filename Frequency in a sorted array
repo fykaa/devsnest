@@ -1,0 +1,69 @@
+Solution 1 - Using First/Last Occurance
+
+First Occurrence
+```
+def first_occurence(nums, k):
+    low = 0
+    high = len(nums) - 1
+    mid = 0
+    ans = -1
+    while low <= high:
+        mid = (high + low)//2
+        if nums[mid] == k:
+            ans = mid
+            high = mid-1
+
+        elif nums[mid] < k:
+            low = mid + 1
+ 
+        
+        elif nums[mid] > k:
+            high = mid - 1
+    return ans
+```
+
+Last Occurence
+```
+def last_occurence(nums, k):
+    low = 0
+    high = len(nums) - 1
+    mid = 0
+    ans = -1
+    while low <= high:
+        mid = (high + low)//2
+        if nums[mid] == k:
+            ans = mid
+            low = mid+1
+
+        elif nums[mid] < k:
+            low = mid + 1
+ 
+        
+        elif nums[mid] > k:
+            high = mid - 1
+    return ans
+```
+
+Applying Last Occurrence - First occurrence + 1 = answer
+```
+def solve(n, nums, k):
+    if(last_occurence(nums,k) != -1):
+        return last_occurence(nums,k)-first_occurence(nums,k)+1
+    else:
+        return 0
+```
+
+Solution 2
+```
+def solve(n, nums, k): return nums.count(k)
+```
+
+Solution 3 
+```
+def solve(n, nums, k):
+    ans = 0
+    for i in range(n):
+        if( nums[i] == k ):
+            ans+=1
+    return ans
+```
