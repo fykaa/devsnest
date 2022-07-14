@@ -1,0 +1,12 @@
+def selection(nums):
+    for iter_num in range(len(nums)):
+        min = iter_num
+        for curr in range(iter_num+1, len(nums)):
+            if( nums[min] > nums[curr]):
+                min = curr
+        nums[iter_num], nums[min] = nums[min], nums[iter_num]
+    return nums
+
+arr = [3,6,7,4,2]
+print(selection(arr))
+            
