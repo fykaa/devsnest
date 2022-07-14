@@ -1,0 +1,11 @@
+def bubble(nums):
+    iter_num = 0
+    curr = 0
+    for iter_num in range(len(nums)):
+        for curr in range(len(nums)-1-iter_num):
+            if nums[curr]>nums[curr+1]:
+                nums[curr], nums[curr+1] = nums[curr+1], nums[curr]
+        iter_num+=1
+    return nums
+arr = [3,6,1,7,4]
+print(bubble(arr))
