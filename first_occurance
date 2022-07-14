@@ -1,0 +1,21 @@
+def first_occurence(n, nums, k):
+    low = 0
+    high = len(nums) - 1
+    mid = 0
+    ans = -1
+    while low <= high:
+        mid = (high + low)//2
+        if nums[mid] == k:
+            ans = mid
+            high = mid-1
+
+        elif nums[mid] < k:
+            low = mid + 1
+ 
+        
+        elif nums[mid] > k:
+            high = mid - 1
+    return ans
+
+arr = [1, 1, 4 ,4 ,4, 7, 9 ,11]
+print(first_occurence(8, arr, 4))
